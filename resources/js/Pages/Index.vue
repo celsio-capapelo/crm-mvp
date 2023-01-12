@@ -143,18 +143,7 @@
       <!-- Deals section START -->
       <section class="deal__table">
         <ul class="deal__column deal__column--leads">
-          <li class="deal__cell" v-for="deal in deals" :key="deal.id">
-            <div class="deal">
-              <div>
-                <p class="deal__text">{{ deal.description }}</p>
-                <p class="deal__company">{{ deal.company }}</p>
-                <p class="deal__summary">
-                  <img src="images/profile.png" alt="Seller picture" class="deal__img u-circle">
-                  <span class="deal__money">{{ deal.money }}</span>
-                </p>
-              </div>
-            </div>
-          </li>
+          <DealItem v-for="deal in deals" :key="deal.id" :deal="deal"/>
         </ul>
       </section>
       <!--  
@@ -256,12 +245,12 @@
 </style>
 
 <script>
-  import deals from '../deals.js';
+  // import deals from '../deals.js';
   import DealItem from '../components/DealItem.vue';
   import DealList from '../components/DealList.vue';
   import TheSideBar from '../components/TheSideBar.vue';
   import TheNavbar from '../components/TheNavbar.vue';
-  import draggable from "vuedraggable";
+  // import draggable from "vuedraggable";
 
   export default {
     components: {
@@ -269,7 +258,7 @@
       DealList,
       TheSideBar,
       TheNavbar,
-      draggable,
+      // draggable,
     },
     created() {
       // this.deals = deals;
