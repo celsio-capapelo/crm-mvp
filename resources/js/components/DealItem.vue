@@ -15,14 +15,8 @@
 
 <style></style>
 
-<script>
-  export default {
-    methods: {
-    },
-    props: {
-      deal: {
-        type: Object
-      }
-    }
-  }
+<script setup>
+  const props = defineProps({
+    deal: Object
+  });
 </script>

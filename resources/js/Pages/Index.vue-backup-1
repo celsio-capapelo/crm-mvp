@@ -244,7 +244,7 @@
   }
 </style>
 
-<script setup>
+<script>
   import DealItem from '../components/DealItem.vue';
   import TheSideBar from '../components/TheSideBar.vue';
   import TheNavbar from '../components/TheNavbar.vue';
@@ -255,3 +255,61 @@
 </script>
 
 
+  // import deals from '../deals.js';
+  // import DealItem from '../components/DealItem.vue';
+  // import DealList from '../components/DealList.vue';
+  // import TheSideBar from '../components/TheSideBar.vue';
+  // import TheNavbar from '../components/TheNavbar.vue';
+  // import draggable from "vuedraggable";
+
+  // export default {
+  //   components: {
+  //     DealItem,
+  //     DealList,
+  //     TheSideBar,
+  //     TheNavbar,
+      // draggable,
+    // },
+    // created() {
+    //   // this.deals = deals;
+    //   // console.log(this.deals);
+    // },
+    // data() {
+    //   return {
+        // deals: null,
+        // drag:false,
+        // list1: [
+        //   { id: 1, name: "Item 1"},
+        //   { id: 2, name: "Item 2"},
+
+        // ],
+        // list2: [
+        //   { id: 3, name: "Item 3"},
+        //   { id: 2, name: "Item 4"},
+
+        // ],
+    //   }
+    // },
+    // methods: {
+      // handleStart(e) {
+      // },
+      // handleEnd(e) {
+
+      // },
+      // handleAdd(e) {
+      //   return false;
+      // },
+      // handeMove(e) {
+      //   // Prevent putting deals to 'needs stage' when this stage was passed
+      //   if ( e.to.getAttribute('class').includes('--needs')) {
+      //     if (e.from.getAttribute('class').includes('--proposals') 
+      //       || e.from.getAttribute('class').includes('--contracts')) {
+      //         console.log('Forbirdden');
+      //         // alert('You cannot retun to \'needs\' stage because you already have sent a proposal or contract.');
+      //         return false;
+      //       }
+      //   } 
+      // }
+  //   },
+  //   props: ['deals'],
+  // }
