@@ -142,10 +142,142 @@
 
       <!-- Deals section START -->
       <section class="deal__table">
-        <ul class="deal__column deal__column--leads">
-          <DealItem v-for="deal in deals" :key="deal.id" :deal="deal"/>
+        <ul class="deal__column ">
+          <li class="deal__cell" v-for="deal in qualifiedLeads" :key="deal.id">
+            <div class="deal">
+              <div class="">
+                <p class="deal__text">{{ deal.description }}</p>
+                <p class="deal__company">{{ deal.company }}</p>
+                <p class="deal__summary">
+                  <img class="deal__img u-circle" src="images/profile.png" alt="Seller picture">
+                  <span class="deal__money">{{ deal.description }}</span>
+                </p>
+              </div>
+              <div class="deal__right deal__icon-box deal__icon-box--green u-circle">
+                <i class="deal__icon las la-angle-right"></i>
+              </div>
+            </div>
+          </li>
         </ul>
+        <ul class="deal__column ">
+          <li class="deal__cell" v-for="deal in contactsMade" :key="deal.id">
+            <div class="deal">
+              <div class="">
+                <p class="deal__text">{{ deal.description }}</p>
+                <p class="deal__company">{{ deal.company }}</p>
+                <p class="deal__summary">
+                  <img class="deal__img u-circle" src="images/profile.png" alt="Seller picture">
+                  <span class="deal__money">{{ deal.description }}</span>
+                </p>
+              </div>
+              <div class="deal__right deal__icon-box deal__icon-box--green u-circle">
+                <i class="deal__icon las la-angle-right"></i>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul class="deal__column ">
+          <li class="deal__cell" v-for="deal in meetingsArranged" :key="deal.id">
+            <div class="deal">
+              <div class="">
+                <p class="deal__text">{{ deal.description }}</p>
+                <p class="deal__company">{{ deal.company }}</p>
+                <p class="deal__summary">
+                  <img class="deal__img u-circle" src="images/profile.png" alt="Seller picture">
+                  <span class="deal__money">{{ deal.description }}</span>
+                </p>
+              </div>
+              <div class="deal__right deal__icon-box deal__icon-box--green u-circle">
+                <i class="deal__icon las la-angle-right"></i>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul class="deal__column ">
+          <li class="deal__cell" v-for="deal in needsDefined" :key="deal.id">
+            <div class="deal">
+              <div class="">
+                <p class="deal__text">{{ deal.description }}</p>
+                <p class="deal__company">{{ deal.company }}</p>
+                <p class="deal__summary">
+                  <img class="deal__img u-circle" src="images/profile.png" alt="Seller picture">
+                  <span class="deal__money">{{ deal.description }}</span>
+                </p>
+              </div>
+              <div class="deal__right deal__icon-box deal__icon-box--green u-circle">
+                <i class="deal__icon las la-angle-right"></i>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul class="deal__column ">
+          <li class="deal__cell" v-for="deal in proposalsSent" :key="deal.id">
+            <div class="deal">
+              <div class="">
+                <p class="deal__text">{{ deal.description }}</p>
+                <p class="deal__company">{{ deal.company }}</p>
+                <p class="deal__summary">
+                  <img class="deal__img u-circle" src="images/profile.png" alt="Seller picture">
+                  <span class="deal__money">{{ deal.description }}</span>
+                </p>
+              </div>
+              <div class="deal__right deal__icon-box deal__icon-box--green u-circle">
+                <i class="deal__icon las la-angle-right"></i>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul class="deal__column ">
+          <li class="deal__cell" v-for="deal in contractsSent" :key="deal.id">
+            <div class="deal">
+              <div class="">
+                <p class="deal__text">{{ deal.description }}</p>
+                <p class="deal__company">{{ deal.company }}</p>
+                <p class="deal__summary">
+                  <img class="deal__img u-circle" src="images/profile.png" alt="Seller picture">
+                  <span class="deal__money">{{ deal.description }}</span>
+                </p>
+              </div>
+              <div class="deal__right deal__icon-box deal__icon-box--green u-circle">
+                <i class="deal__icon las la-angle-right"></i>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <!-- <draggable class="deal__column deal__column--leads" :list="dealsInLeads" 
+          group="stage" item-key="id" tag="ul" id="stage-1" stage="leads">
+          <template #item="{element}">
+            <DealItem :deal="element" />
+          </template>
+        </draggable> -->
+        <!-- <draggable class="deal__column deal__column--leads" group="stage" tag="ul" stage="leads" 
+          :list="deals.filter(d => d.stages_id === 1)" itemKey="id"
+        >
+          <template #item="{element}">
+            <DealItem :deal="element" />
+          </template>
+        </draggable> -->
+        .
+        <!-- <ul class="deal__column deal__column--leads">
+          <DealItem v-for="deal in deals.filter(d => d.stages_id === 1)" :key="deal.id" :deal="deal"/>
+        </ul> -->
+        <!-- <ul class="deal__column deal__column--leads">
+          <DealItem v-for="deal in deals.filter(d => d.stages_id === 2)" :key="deal.id" :deal="deal"/>
+        </ul>
+        <ul class="deal__column deal__column--leads">
+          <DealItem v-for="deal in deals.filter(d => d.stages_id === 3)" :key="deal.id" :deal="deal"/>
+        </ul>
+        <ul class="deal__column deal__column--leads">
+          <DealItem v-for="deal in deals.filter(d => d.stages_id === 4)" :key="deal.id" :deal="deal"/>
+        </ul>
+        <ul class="deal__column deal__column--leads">
+          <DealItem v-for="deal in deals.filter(d => d.stages_id === 5)" :key="deal.id" :deal="deal"/>
+        </ul>
+        <ul class="deal__column deal__column--leads">
+          <DealItem v-for="deal in deals.filter(d => d.stages_id === 6)" :key="deal.id" :deal="deal"/>
+        </ul> -->
       </section>
+      
       <!--  
       <section class="deal__table">
         <draggable class="deal__column deal__column--leads" v-model="deals.leads" group="stage" 
@@ -244,14 +376,44 @@
   }
 </style>
 
-<script setup>
+<script>
   import DealItem from '../components/DealItem.vue';
   import TheSideBar from '../components/TheSideBar.vue';
   import TheNavbar from '../components/TheNavbar.vue';
+  import draggable from "vuedraggable";
 
-  const props = defineProps({
-    deals: Array
-  });
+  // import { ref, onMounted } from "vue";
+
+  // const props = defineProps({
+  //   deals: Array
+  // });
+
+  // let dealsArr = ref([]);
+
+  // console.log(deals);
+
+  export default {
+    created() {
+      // console.log(this.dealsInLeads);
+      // console.log(this.deals);
+      // console.log(this.deals.filter(d => d.stages_id === 1));
+    },
+    components: { TheNavbar, TheSideBar, DealItem, draggable },
+    data() { 
+      return { 
+        // dealsArr: null 
+      };
+    },
+    computed: {
+      qualifiedLeads() {return this.deals.filter(d => d.stages_id === 1)},
+      contactsMade() {return this.deals.filter(d => d.stages_id === 2)},
+      meetingsArranged() {return this.deals.filter(d => d.stages_id === 3)},
+      needsDefined() {return this.deals.filter(d => d.stages_id === 4)},
+      proposalsSent() {return this.deals.filter(d => d.stages_id === 5)},
+      contractsSent() {return this.deals.filter(d => d.stages_id === 6)},
+    },
+    props: ['deals']
+  }
 </script>
 
 
