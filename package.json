@@ -14,8 +14,10 @@
     "dependencies": {
         "@inertiajs/inertia": "^0.11.1",
         "@inertiajs/inertia-vue3": "^0.6.0",
+        "@inertiajs/progress": "^0.2.7",
         "@vitejs/plugin-vue": "^4.0.0",
-        "vue": "^3.2.36",
-        "vuedraggable": "^2.24.3"
+        "vue": "^3.2.45",
+        "vue-draggable-next": "^2.1.1",
+        "vuedraggable": "^4.1.0"
     }
 }

@@ -4,7 +4,7 @@
         <nav class="nav">
           <span class="nav__greeting">Deals</span>
           <div class="">
-            <img class="u-circle nav__img" src="images/profile.png" alt="User profile image">
+            <img class="u-circle nav__img" src="/images/profile.png" alt="User profile image">
             <span>Lair Palmiro</span>
           </div>
         </nav>

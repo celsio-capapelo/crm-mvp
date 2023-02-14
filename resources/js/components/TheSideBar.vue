@@ -5,28 +5,34 @@
     </div>
     <ul class="sidebar__list">
       <li class="sidebar__item">
-        <a href="/" class="sidebar__link">
+        <Link href="/" class="sidebar__link">
           <i class="sidebar__icon las la-envelope"></i>
           <span></span>
-        </a>
+        </Link>
       </li>
-      <li class="sidebar__item sidebar__item--active">
-        <a href="elements.html" class="sidebar__link">
+      <li class="sidebar__item" :class="{ 'sidebar__item--active': $page.url === '/index' }">
+        <Link href="/index" class="sidebar__link">
           <i class="sidebar__icon las la-dollar-sign"></i>
           <span></span>
-        </a>
+        </Link>
       </li>
       <li class="sidebar__item">
-        <a href="components.html" class="sidebar__link">
+        <Link href="components.html" class="sidebar__link">
           <i class="sidebar__icon las la-table"></i>
           <span></span>
-        </a>
+        </Link>
       </li>
-      <li class="sidebar__item">
-        <a href="/" class="sidebar__link">
+      <li class="sidebar__item" :class="{ 'sidebar__item--active': $page.url === '/seller/index' }">
+        <Link href="/seller/index" class="sidebar__link">
           <i class="sidebar__icon las la-address-book"></i>
           <span></span>
-        </a>
+        </Link>
+      </li>
+      <li class="sidebar__item" :class="{ 'sidebar__item--active': $page.url === '/lab' }">
+        <Link href="/lab" class="sidebar__link">
+          <i class="sidebar__icon las la-flask"></i>
+          <span></span>
+        </Link>
       </li>
     </ul>
   </menu>
@@ -34,6 +40,6 @@
 
 <style></style>
 
-<script>
-  export default {}
+<script setup>
+    import { Link } from '@inertiajs/inertia-vue3';
 </script>

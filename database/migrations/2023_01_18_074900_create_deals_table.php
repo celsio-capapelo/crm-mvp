@@ -20,8 +20,9 @@ return new class extends Migration
             $table->string('company');
             $table->string('img');
             $table->decimal('money', $precision = 10, $scale = 2);
-            $table->string('schedule');
+            $table->string('schedule')->nullable();
             $table->foreignId('stages_id');
+            $table->foreignId('sellers_id');
             $table->timestamps();
         });
 
@@ -31,7 +32,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 3000,
             'schedule' => 'today',
-            'stages_id' => 1
+            'stages_id' => 1,
+            'sellers_id' => 1
         ]);
         Deal::create([
             'description' => 'John Smith',
@@ -39,7 +41,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 5000,
             'schedule' => 'delay',
-            'stages_id' => 1
+            'stages_id' => 1,
+            'sellers_id' => 1
         ]);
         Deal::create([
             'description' => 'Bill Gates - Microsoft',
@@ -47,7 +50,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 10000,
             'schedule' => 'future',
-            'stages_id' => 1
+            'stages_id' => 1,
+            'sellers_id' => 1
         ]);
         Deal::create([
             'description' => 'James Kirk - UFP',
@@ -55,7 +59,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 33000,
             'schedule' => '',
-            'stages_id' => 1
+            'stages_id' => 1,
+            'sellers_id' => 1
         ]);
         Deal::create([
             'description' => 'Bruce Wayne',
@@ -63,7 +68,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 12000,
             'schedule' => '',
-            'stages_id' => 2
+            'stages_id' => 2,
+            'sellers_id' => 3
         ]);
         Deal::create([
             'description' => 'Griphook - Gringotts (March-2021)',
@@ -71,7 +77,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 10000,
             'schedule' => 'future',
-            'stages_id' => 2
+            'stages_id' => 2,
+            'sellers_id' => 2
         ]);
         Deal::create([
             'description' => 'Nick Fury - Shield',
@@ -79,7 +86,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 6750,
             'schedule' => 'future',
-            'stages_id' => 3
+            'stages_id' => 3,
+            'sellers_id' => 2
         ]);
         Deal::create([
             'description' => 'Holly McClane - Nakatomi Trading Corp. (Payment 2)',
@@ -87,7 +95,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 10000,
             'schedule' => 'future',
-            'stages_id' => 3
+            'stages_id' => 3,
+            'sellers_id' => 2
         ]);
         Deal::create([
             'description' => 'Jimmy Hendrix - Loud Music',
@@ -95,7 +104,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 33000,
             'schedule' => 'future',
-            'stages_id' => 3
+            'stages_id' => 3,
+            'sellers_id' => 2
         ]);
         Deal::create([
             'description' => 'Bass Industries (Chuck Bass)',
@@ -103,7 +113,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 7300,
             'schedule' => 'today',
-            'stages_id' => 4
+            'stages_id' => 4,
+            'sellers_id' => 2
         ]);
         Deal::create([
             'description' => 'Apple Inc (Marketing Plan)',
@@ -111,7 +122,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 3000,
             'schedule' => 'future',
-            'stages_id' => 4
+            'stages_id' => 4,
+            'sellers_id' => 2
         ]);
         Deal::create([
             'description' => 'Jane Smith (Website )',
@@ -119,7 +131,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 8000,
             'schedule' => 'future',
-            'stages_id' => 5
+            'stages_id' => 5,
+            'sellers_id' => 2
         ]);
         Deal::create([
             'description' => 'Lois Lane - The Dailly Planet',
@@ -127,7 +140,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 33000,
             'schedule' => 'future',
-            'stages_id' => 5
+            'stages_id' => 5,
+            'sellers_id' => 2
         ]);
         Deal::create([
             'description' => 'Wendy Darcy - Palo Alto Networks',
@@ -135,7 +149,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 69000,
             'schedule' => 'future',
-            'stages_id' => 5
+            'stages_id' => 5,
+            'sellers_id' => 2
         ]);
         Deal::create([
             'description' => 'Tom\'s Big Company - Paul Minors #15',
@@ -143,7 +158,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 12000,
             'schedule' => 'today',
-            'stages_id' => 5
+            'stages_id' => 5,
+            'sellers_id' => 2
         ]);
         Deal::create([
             'description' => 'Tom\'s Big Company - Paul Minors #8',
@@ -151,7 +167,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 8000,
             'schedule' => 'future',
-            'stages_id' => 5
+            'stages_id' => 5,
+            'sellers_id' => 2
         ]);
         Deal::create([
             'description' => 'Tesla - Elon Musk #86 (Payment #2)',
@@ -159,7 +176,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 10000,
             'schedule' => 'future',
-            'stages_id' => 5
+            'stages_id' => 5,
+            'sellers_id' => 2
         ]);
         Deal::create([
             'description' => 'Ellen Page - Microcorp Inc',
@@ -167,7 +185,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 500,
             'schedule' => 'future',
-            'stages_id' => 6
+            'stages_id' => 6,
+            'sellers_id' => 2
         ]);
         Deal::create([
             'description' => 'Holly McClane - Nakatomi Trading Corp. (Payment 1)',
@@ -175,7 +194,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 33000,
             'schedule' => 'future',
-            'stages_id' => 6
+            'stages_id' => 6,
+            'sellers_id' => 2
         ]);
         Deal::create([
             'description' => 'Johh\'s Big Company deal',
@@ -183,7 +203,8 @@ return new class extends Migration
             'img' => 'images/profile.png',
             'money' => 22000,
             'schedule' => 'today',
-            'stages_id' => 6
+            'stages_id' => 6,
+            'sellers_id' => 2
         ]);
     }
 

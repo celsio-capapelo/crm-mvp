@@ -844,3 +844,18 @@ main {
       background-color: #F0B429; }
       .deal__icon-box--triangle .deal__icon {
         transform: translate(-50%, -40%); }
+
+/* ----------------------------- */
+/* Sellers Pages */
+/* ----------------------------- */
+.seller__section {
+  margin: 1.2rem 0.8rem
+}
+
+.table th, .table td {
+  text-align: left;
+}
+
+.table__row .seller__closed {
+  text-align: right;
+}

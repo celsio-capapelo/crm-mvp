@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Models\Deal;
+use App\Models\Seller;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,33 @@ Route::get('/show', function () {
 });
 
 Route::get('/index', function () {
+    // sleep(2);
     return Inertia::render('Index', [
         'deals' => Deal::all()
     ]);
+});
+
+Route::get('/seller/index', function () {
+    return Inertia::render('seller/Index', [
+        'sellers' => Seller::all()
+    ]);
+});
+
+Route::get('/lab', function () {
+    return Inertia::render('Lab', [
+        'deals' => Deal::all(),
+        'time' => now()->toTimeString(),
+    ]);
+});
+
+Route::get('/drag', function () {
+    // return Inertia::render('Play');
+    return Inertia::render('Drag', [
+        'deals' => Deal::all(),
+        'time' => now()->toTimeString(),
+    ]);
+});
+
+Route::post('/logout', function () {
+    dd('login the user out');
 });
