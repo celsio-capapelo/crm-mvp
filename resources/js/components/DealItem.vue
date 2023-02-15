@@ -9,6 +9,17 @@
           <span class="deal__money">${{ deal.money }}</span>
         </p>
       </div>
+      <div class="deal__right deal__icon-box"
+        :class="{
+          'deal__icon-box--triangle': !deal.schedule,
+          'deal__icon-box--green u-circle': deal.schedule === 'today',
+          'deal__icon-box--grey u-circle': deal.schedule === 'future',
+          'deal__icon-box--red u-circle': deal.schedule === 'delay' 
+        }"  
+      >
+        <span v-if="!deal.schedule" class="deal__icon">!</span>
+        <i v-else class="deal__icon las la-angle-right"></i>
+      </div>
     </div>
   </li>
 </template>
