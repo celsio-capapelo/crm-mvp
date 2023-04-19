@@ -4,16 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Deal;
+use App\Models\User;
 
-class Stage extends Model
+class Pipeline extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function deals() {
-        return $this->hasMany(Deal::class);
+    public function user() {
+        return $this->belongsTo(User::class);
     }
-    
 }

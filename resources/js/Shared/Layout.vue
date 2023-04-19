@@ -42,16 +42,16 @@
       <!-- Filters section END -->
 
       <!-- Links Slots START -->
-      <slot name="section-links">
+      <!-- <slot name="section-links"> -->
          <!-- Links Section START -->
-        <section class="section section--lab">
+        <!-- <section class="section section--lab">
           <ul>
             <li><a href="/">Home</a></li>
             <li><Link href="/logout" method="post" as="button" class="" :data="{foo:'bar'}">Logout</Link></li>
           </ul>
-        </section>
+        </section> -->
         <!-- Links Section END -->
-      </slot>
+      <!-- </slot> -->
       <!-- Links Slots END -->
 
       <!-- Stages section START -->

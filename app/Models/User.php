@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Deal;
+use App\Models\Pipeline;
 
 class User extends Authenticatable
 {
@@ -41,4 +43,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function deals()
+    {
+        return $this->belongsToMany(Deal::class, 'followers');
+    }
+
+    public function pipelines() {
+        return $this->hasMany(Pipeline::class);
+    }
 }

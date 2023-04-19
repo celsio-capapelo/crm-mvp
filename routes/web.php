@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Models\Deal;
 use App\Models\Seller;
-
+use App\Http\Controllers\DealController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +15,10 @@ use App\Models\Seller;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
+Route::get('/pipelines/deals', [DealController::class, 'Index']);
 
 Route::get('/', function () {
     return view('welcome');
