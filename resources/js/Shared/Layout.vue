@@ -38,7 +38,7 @@
             </div>
             
             <!-- Pipeline slot START-->
-            <slot name="pipeline"></slot>
+            <!-- <slot name="pipeline"></slot> -->
             <!-- Pipeline slot END-->
           </div>
         </div>

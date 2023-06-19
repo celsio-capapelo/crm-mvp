@@ -1,66 +1,61 @@
+<template>
+  <section class="deal__table">
+    <draggable class="deal__column deal__column--leads" v-model="qualifiedLeads" group="stage" 
+      :move="handleMove" @add="handleAdd" item-key="id" tag="ul" id="9" stage="leads"
+    >
+      <template #item="{element}">
+        <DealItem :deal="element" :id="element.id"/>
+      </template>
+    </draggable>
 
-  <template #default>
-    <!-- Deals section START -->
-    <section class="deal__table">
-      <draggable class="deal__column deal__column--leads" v-model="qualifiedLeads" group="stage" 
-        :move="handleMove" @add="handleAdd" item-key="id" tag="ul" id="9" stage="leads"
-      >
-        <template #item="{element}">
-          <DealItem :deal="element" :id="element.id"/>
-        </template>
-      </draggable>
+    <draggable class="deal__column deal__column--contacts" v-model="contactsMade" group="stage" 
+      :move="handleMove" @add="handleAdd" item-key="id" tag="ul" id="2" stage="leads"
+    >
+      <template #item="{element}">
+        <DealItem :deal="element" :id="element.id"/>
+      </template>
+    </draggable>
 
-      <draggable class="deal__column deal__column--contacts" v-model="contactsMade" group="stage" 
-        :move="handleMove" @add="handleAdd" item-key="id" tag="ul" id="2" stage="leads"
-      >
-        <template #item="{element}">
-          <DealItem :deal="element" :id="element.id"/>
-        </template>
-      </draggable>
+    <draggable class="deal__column deal__column--meeting" v-model="meetingsArranged" group="stage" 
+      :move="handleMove" @add="handleAdd" item-key="id" tag="ul" id="3" stage="leads"
+    >
+      <template #item="{element}">
+        <DealItem :deal="element" :id="element.id"/>
+      </template>
+    </draggable>
 
-      <draggable class="deal__column deal__column--meeting" v-model="meetingsArranged" group="stage" 
-        :move="handleMove" @add="handleAdd" item-key="id" tag="ul" id="3" stage="leads"
-      >
-        <template #item="{element}">
-          <DealItem :deal="element" :id="element.id"/>
-        </template>
-      </draggable>
+    <draggable class="deal__column deal__column--needs" v-model="needsDefined" group="stage" 
+      :move="handleMove" @add="handleAdd" item-key="id" tag="ul" id="4" stage="leads"
+    >
+      <template #item="{element}">
+        <DealItem :deal="element" :id="element.id"/>
+      </template>
+    </draggable>
 
-      <draggable class="deal__column deal__column--needs" v-model="needsDefined" group="stage" 
-        :move="handleMove" @add="handleAdd" item-key="id" tag="ul" id="4" stage="leads"
-      >
-        <template #item="{element}">
-          <DealItem :deal="element" :id="element.id"/>
-        </template>
-      </draggable>
+    <draggable class="deal__column deal__column--proposals" v-model="proposalsSent" group="stage" 
+      :move="handleMove" @add="handleAdd" item-key="id" tag="ul" id="5" stage="leads"
+    >
+      <template #item="{element}">
+        <DealItem :deal="element" :id="element.id"/>
+      </template>
+    </draggable>
 
-      <draggable class="deal__column deal__column--proposals" v-model="proposalsSent" group="stage" 
-        :move="handleMove" @add="handleAdd" item-key="id" tag="ul" id="5" stage="leads"
-      >
-        <template #item="{element}">
-          <DealItem :deal="element" :id="element.id"/>
-        </template>
-      </draggable>
-
-      <draggable class="deal__column deal__column--contracts" v-model="contractsSent" group="stage" 
-        :move="handleMove" @add="handleAdd" item-key="id" tag="ul" id="6" stage="leads"
-      >
-        <template #item="{element}">
-          <DealItem :deal="element" :id="element.id"/>
-        </template>
-      </draggable>
-    </section>
-  </template>
-  <template #pipeline>
-    <div>Manage pipeline</div>
-  </template>
+    <draggable class="deal__column deal__column--contracts" v-model="contractsSent" group="stage" 
+      :move="handleMove" @add="handleAdd" item-key="id" tag="ul" id="6" stage="leads"
+    >
+      <template #item="{element}">
+        <DealItem :deal="element" :id="element.id"/>
+      </template>
+    </draggable>
+  </section>
+</template>
 
 <style>
 </style>
 
 <script>
   import Layout from '../../Shared/Layout.vue';
-
+  
   export default {
     components: {Layout},
     layout: Layout,
