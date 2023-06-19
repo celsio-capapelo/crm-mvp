@@ -36,6 +36,10 @@
             <div class="">
               <span>23 deals</span>
             </div>
+            
+            <!-- Pipeline slot START-->
+            <slot name="pipeline"></slot>
+            <!-- Pipeline slot END-->
           </div>
         </div>
       </section>

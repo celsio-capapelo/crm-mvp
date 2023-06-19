@@ -1,3 +1,83 @@
+////////////////////////////////////////////////////////
+// Boilerplate Code
+////////////////////////////////////////////////////////
+php artisan make:model Purpose -mcf
+php artisan make:model Stage -mcf
+php artisan make:model Company -mcf
+php artisan make:model Contact -mcf
+php artisan make:model ContactDeal -mcf
+php artisan make:model Deal -mcf
+php artisan make:model Follower -mcf
+php artisan make:model Pipeline -mcf
+php artisan make:model Profile -mcf
+
+// Migration
+$table->string('name');
+$table->foreignId('user_id')->constrained();
+$table->primary(['contact_id', 'deal_id']);
+$table->foreignId('deal_id')->constrained('deals');
+$table->foreignId('contact_id')->constrained('contacts');
+$table->boolean('is_primary')->default(false);
+$table->dateTime('created_at', $precision = 0);
+$table->text('description');
+
+// Models
+protected $guarded = [];
+
+protected $table = 'contact_deal';
+
+public function company() {
+  return $this->belongsTo(Company::class);
+}
+
+public function deals() {
+  return $this->belongsToMany(Company::class)->withPivot('is_primary');
+}
+
+public function contacts()
+{
+    return $this->belongsToMany(Contact::class)->withPivot('is_primary');
+}
+
+public function primaryContact()
+{
+    return $this->belongsToMany(Contact::class)->withPivot('is_primary')->wherePivot('is_primary', 1);
+}
+
+public function owner()
+{
+    return $this->belongsToMany(User::class, 'followers')->withPivot('is_owner')->wherePivot('is_owner', 1);
+}
+
+public function deals() {
+    return $this->hasMany(Deal::class);
+}
+
+// Factory
+'name' => fake()->company(),
+'address' => fake()->address(),
+'phone_number' => fake()->phoneNumber(),
+'website' => fake()->word() . ".com", 
+'deal_id' => fake()->numberBetween(1, 5),
+'email' => fake()->email(),
+title' => fake()->sentence(5),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////
+// Database Seeding
+////////////////////////////////////////////////////////
 Tables sem link a outras 
 Users
 Purpose 
@@ -12,16 +92,6 @@ followers
 pipelines
 profiles
 
-php artisan make:model Purpose -mcf
-php artisan make:model Stage -mcf
-php artisan make:model Company -mcf
-php artisan make:model Contact -mcf
-php artisan make:model ContactDeal -mcf
-php artisan make:model Deal -mcf
-php artisan make:model Follower -mcf
-php artisan make:model Pipeline -mcf
-php artisan make:model Profile -mcf
-
 // Scenario for start implements basics functionalities
 Create 4 users
 Create 15 deals for user_id 1
@@ -34,6 +104,12 @@ Each deal has 3 contacts and one of them is the owner
 
 ////////////////////////////////////////////////////////
 // Implementation
+
+php artisan migrate:fresh
+php artisan tinker
+php artisan migrate:rollback --path=database/migrations/2023_05_09_131849_create_activity_deals_table.php
+php artisan migrate --path=database/migrations/2023_05_09_131849_create_activity_deals_table.php
+
 
 // Inital data
 App\Models\Purpose::create(['name' => 'Sales']);
@@ -50,6 +126,13 @@ App\Models\Stage::create(['name' => 'Disqualified']);
 App\Models\Stage::create(['name' => 'Lead']);
 App\Models\Stage::create(['name' => 'Qualification']);
 App\Models\Stage::create(['name' => 'On Hold']);
+
+App\Models\Activity::create(['name' => 'Make a Call']);
+App\Models\Activity::create(['name' => 'Send an Email']);
+App\Models\Activity::create(['name' => 'Schedule a meeting']);
+
+
+
 
 // Users
 // A user with a pipeline
@@ -174,7 +257,7 @@ App\Models\ContactDeal::create(['deal_id' => 10, 'contact_id' => 30, 'is_primary
 App\Models\ContactDeal::create(['deal_id' => 11, 'contact_id' => 31, 'is_primary' => true]);
 App\Models\ContactDeal::create(['deal_id' => 11, 'contact_id' => 32, 'is_primary' => false]);
 App\Models\ContactDeal::create(['deal_id' => 11, 'contact_id' => 33, 'is_primary' => false]);
-App\Models\ContactDeal::create(['deal_id' => 12, 'contact_id' => 34 'is_primary' => true]);
+App\Models\ContactDeal::create(['deal_id' => 12, 'contact_id' => 34, 'is_primary' => true]);
 App\Models\ContactDeal::create(['deal_id' => 12, 'contact_id' => 35, 'is_primary' => false]);
 App\Models\ContactDeal::create(['deal_id' => 12, 'contact_id' => 36, 'is_primary' => false]);
 App\Models\ContactDeal::create(['deal_id' => 13, 'contact_id' => 37, 'is_primary' => true]);
@@ -187,4 +270,24 @@ App\Models\ContactDeal::create(['deal_id' => 15, 'contact_id' => 43, 'is_primary
 App\Models\ContactDeal::create(['deal_id' => 15, 'contact_id' => 44, 'is_primary' => false]);
 App\Models\ContactDeal::create(['deal_id' => 15, 'contact_id' => 45, 'is_primary' => false]);
 
+
+// Each group of 5 deals, one no activity, one delayed, two today and one future
+use Carbon\Carbon;
+App\Models\ActivityDeal::create(['deal_id' => 2, 'activity_id' => 1, 'schedule' => Carbon::yesterday()]);
+App\Models\ActivityDeal::create(['deal_id' => 3, 'activity_id' => 2, 'schedule' => Carbon::now()]);
+App\Models\ActivityDeal::create(['deal_id' => 4, 'activity_id' => 3, 'schedule' => Carbon::today()->startOfDay()]);
+App\Models\ActivityDeal::create(['deal_id' => 5, 'activity_id' => 3, 'schedule' => Carbon::today()->addDays(2)]);
+App\Models\ActivityDeal::create(['deal_id' => 5, 'activity_id' => 1, 'schedule' => Carbon::today()->addDays(2)]);
+
+App\Models\ActivityDeal::create(['deal_id' => 7, 'activity_id' => 1, 'schedule' => Carbon::yesterday()]);
+App\Models\ActivityDeal::create(['deal_id' => 8, 'activity_id' => 2, 'schedule' => Carbon::now()]);
+App\Models\ActivityDeal::create(['deal_id' => 9, 'activity_id' => 3, 'schedule' => Carbon::today()->startOfDay()]);
+App\Models\ActivityDeal::create(['deal_id' => 10, 'activity_id' => 3, 'schedule' => Carbon::today()->addDays(1)]);
+App\Models\ActivityDeal::create(['deal_id' => 10, 'activity_id' => 2, 'schedule' => Carbon::today()->addDays(1)]);
+
+App\Models\ActivityDeal::create(['deal_id' => 12, 'activity_id' => 1, 'schedule' => Carbon::yesterday()]);
+App\Models\ActivityDeal::create(['deal_id' => 13, 'activity_id' => 2, 'schedule' => Carbon::now()]);
+App\Models\ActivityDeal::create(['deal_id' => 14, 'activity_id' => 3, 'schedule' => Carbon::today()->startOfDay()]);
+App\Models\ActivityDeal::create(['deal_id' => 15, 'activity_id' => 3, 'schedule' => Carbon::today()->addDays(3)]);
+App\Models\ActivityDeal::create(['deal_id' => 15, 'activity_id' => 2, 'schedule' => Carbon::today()->addDays(3)]);
 

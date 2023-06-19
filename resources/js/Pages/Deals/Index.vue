@@ -1,89 +1,59 @@
 
-<template>
+  <template #default>
+    <!-- Deals section START -->
+    <section class="deal__table">
+      <draggable class="deal__column deal__column--leads" v-model="qualifiedLeads" group="stage" 
+        :move="handleMove" @add="handleAdd" item-key="id" tag="ul" id="9" stage="leads"
+      >
+        <template #item="{element}">
+          <DealItem :deal="element" :id="element.id"/>
+        </template>
+      </draggable>
 
-  <!-- Deals section START -->
-  <section class="deal__table">
-    <draggable class="deal__column deal__column--leads" v-model="qualifiedLeads" group="stage" 
-      :move="handleMove" item-key="id" tag="ul" id="stage-1" stage="leads"
-    >
-      <template #item="{element}">
-        <DealItem :deal="element"/>
-      </template>
-    </draggable>
+      <draggable class="deal__column deal__column--contacts" v-model="contactsMade" group="stage" 
+        :move="handleMove" @add="handleAdd" item-key="id" tag="ul" id="2" stage="leads"
+      >
+        <template #item="{element}">
+          <DealItem :deal="element" :id="element.id"/>
+        </template>
+      </draggable>
 
-    <draggable class="deal__column deal__column--contacts" v-model="contactsMade" group="stage" 
-      :move="handleMove" item-key="id" tag="ul" id="stage-2" stage="leads"
-    >
-      <template #item="{element}">
-        <DealItem :deal="element"/>
-      </template>
-    </draggable>
+      <draggable class="deal__column deal__column--meeting" v-model="meetingsArranged" group="stage" 
+        :move="handleMove" @add="handleAdd" item-key="id" tag="ul" id="3" stage="leads"
+      >
+        <template #item="{element}">
+          <DealItem :deal="element" :id="element.id"/>
+        </template>
+      </draggable>
 
-    <draggable class="deal__column deal__column--meeting" v-model="meetingsArranged" group="stage" 
-      :move="handleMove" item-key="id" tag="ul" id="stage-3" stage="leads"
-    >
-      <template #item="{element}">
-        <DealItem :deal="element"/>
-      </template>
-    </draggable>
+      <draggable class="deal__column deal__column--needs" v-model="needsDefined" group="stage" 
+        :move="handleMove" @add="handleAdd" item-key="id" tag="ul" id="4" stage="leads"
+      >
+        <template #item="{element}">
+          <DealItem :deal="element" :id="element.id"/>
+        </template>
+      </draggable>
 
-    <draggable class="deal__column deal__column--needs" v-model="needsDefined" group="stage" 
-      :move="handleMove" item-key="id" tag="ul" id="stage-4" stage="leads"
-    >
-      <template #item="{element}">
-        <DealItem :deal="element"/>
-      </template>
-    </draggable>
+      <draggable class="deal__column deal__column--proposals" v-model="proposalsSent" group="stage" 
+        :move="handleMove" @add="handleAdd" item-key="id" tag="ul" id="5" stage="leads"
+      >
+        <template #item="{element}">
+          <DealItem :deal="element" :id="element.id"/>
+        </template>
+      </draggable>
 
-    <draggable class="deal__column deal__column--proposals" v-model="proposalsSent" group="stage" 
-      :move="handleMove" item-key="id" tag="ul" id="stage-5" stage="leads"
-    >
-      <template #item="{element}">
-        <DealItem :deal="element"/>
-      </template>
-    </draggable>
-
-    <draggable class="deal__column deal__column--contracts" v-model="contractsSent" group="stage" 
-      :move="handleMove" item-key="id" tag="ul" id="stage-6" stage="leads"
-    >
-      <template #item="{element}">
-        <DealItem :deal="element"/>
-      </template>
-    </draggable>
-  </section>
-
-  <!-- <section class="deal__table">
-    <ul class="deal__column">
-        <DealItem v-for="deal in deals" :key="deal.id" :deal="deal" />
-    </ul>
-  </section> -->
-
-  <!-- <h1>Deals</h1>
-  <section>
-    <h2>Deals</h2>
-    <ul>
-      <li v-for="deal in deals" :key="deal.id">{{ deal.title }}</li>
-    </ul>
-  </section>
-  <section>
-    <h2>Stages</h2>
-    <ul>
-      <li v-for="deal in deals" :key="deal.id">{{ deal.id }} {{ deal.stage.name }}</li>
-    </ul>
-  </section>
-  <section>
-    <h2>Companies</h2>
-    <ul>
-      <li v-for="deal in deals" :key="deal.id">{{ deal.id }} {{ deal.company.name }}</li>
-    </ul>
-  </section>
-  <section>
-    <h2>Primary Contacts</h2>
-    <ul>
-      <li v-for="deal in deals" :key="deal.id">{{ deal.id }} {{ deal.primary_contact[0].name }}</li>
-    </ul>
-  </section> -->
-</template>
+      <draggable class="deal__column deal__column--contracts" v-model="contractsSent" group="stage" 
+        :move="handleMove" @add="handleAdd" item-key="id" tag="ul" id="6" stage="leads"
+      >
+        <template #item="{element}">
+          <DealItem :deal="element" :id="element.id"/>
+        </template>
+      </draggable>
+    </section>
+  </template>
+  <template #pipeline>
+    <div>Manage pipeline</div>
+  </template>
 
 <style>
 </style>
@@ -99,25 +69,63 @@
 
 <script setup>
   import DealItem from "../../components/DealItem.vue";
-  import { ref } from "vue";
+  import { ref, reactive } from "vue";
   import draggable from 'vuedraggable';
+
+  // Helpers
+  const writeResource = async function (method, url, payload) {
+    try {
+        const response = await fetch(
+            // 1) Add URL
+            url,
+            {
+                // 2) Add headers, method, credentials and payload
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json, text-plain, */*",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "X-CSRF-TOKEN": document
+                        .querySelector('meta[name="csrf-token"]')
+                        .getAttribute("content"),
+                },
+                method,
+                credentials: "same-origin",
+                body: JSON.stringify(payload),
+            }
+        );
+        
+        // 3) Handle Success
+        if (!response.ok)
+            throw new Error(
+                `Something went wrong. ${response.statusText} (${response.status})`
+            );
+        // if (method === 'put') projectNotesView();
+        const data = await response.json();
+        return data;
+        // 3) Handle Error response
+    } catch (err) {
+        console.log(err.message);
+    }
+  };
 
   const props = defineProps({
     deals: Array,
     primaryContactArr: Array,
+    stages: Array,
   });
 
-  // onMounted(()=> {
-    // props.deals.forEach(d => console.log(d.primary_contact[0].name));
-  // });
+  const state = reactive({
+    deals: props.deals,
+    stages: props.stages
+  });
 
   // Create group of deals by stage
-  const qualifiedLeads = ref(props.deals.filter(d => d.stage_id == 9));
-  const contactsMade = ref(props.deals.filter(d => d.stage_id === 2));
-  const meetingsArranged = ref(props.deals.filter(d => d.stage_id === 3));
-  const needsDefined = ref(props.deals.filter(d => d.stage_id === 4));
-  const proposalsSent = ref(props.deals.filter(d => d.stage_id === 5));
-  const contractsSent = ref(props.deals.filter(d => d.stage_id === 6));
+  const qualifiedLeads = ref(state.deals.filter(d => d.stage_id == 9));
+  const contactsMade = ref(state.deals.filter(d => d.stage_id === 2));
+  const meetingsArranged = ref(state.deals.filter(d => d.stage_id === 3));
+  const needsDefined = ref(state.deals.filter(d => d.stage_id === 4));
+  const proposalsSent = ref(state.deals.filter(d => d.stage_id === 5));
+  const contractsSent = ref(state.deals.filter(d => d.stage_id === 6));
 
   // Prevent putting deals to 'needs stage' when this stage was passed
   const handleMove = e => {
@@ -131,4 +139,13 @@
     } 
   }
 
+  const handleAdd = e => {
+    // Update added deal in state
+    let deal = state.deals.find(d => d.id === +e.item.getAttribute('id'));
+    const stage = state.stages.find(s => s.id === +e.to.getAttribute('id'));
+    deal = {...deal, stage_id: stage.id, stage: stage};
+
+    // Update added deal in DB
+    writeResource('put', '/pipelines/deals/' + deal.id, { stageId: deal.stage_id });
+  }
 </script>

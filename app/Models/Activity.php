@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Deal;
 
-class Follower extends Model
+class Activity extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    // public function deals()
-    // {
-    //     return $this->belongsToMany(Deal::class)->withPivot('is_owner');
-    // }
+    public function deals()
+    {
+        return $this->belongsToMany(Deal::class)->withPivot('schedule', 'comment', 'completed_at');
+    }
 }

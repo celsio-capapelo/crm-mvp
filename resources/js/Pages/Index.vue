@@ -71,6 +71,7 @@
     deals: Array
   });
 
+ 
   // Create group of deals by stage
   const qualifiedLeads = ref(props.deals.filter(d => d.stages_id === 1));
   const contactsMade = ref(props.deals.filter(d => d.stages_id === 2));

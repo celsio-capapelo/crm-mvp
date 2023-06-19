@@ -32,7 +32,7 @@
     </head>
     <body class="antialiased">
         <ul>
-            <li><a href="/index">Deals</a></li>
+            <li><a href="/pipelines/deals">Deals</a></li>
             <li><a href="/seller/index">Sellers</a></li>
             <li><a href="/lab">Lab</a></li>
         </ul>

@@ -5,6 +5,8 @@ use Inertia\Inertia;
 use App\Models\Deal;
 use App\Models\Seller;
 use App\Http\Controllers\DealController;
+use App\Http\Controllers\PipelineController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,14 +18,16 @@ use App\Http\Controllers\DealController;
 |
 */
 
+Route::get('/pipelines/create', [PipelineController::class, 'create']);
 
-
-Route::get('/pipelines/deals', [DealController::class, 'Index']);
+Route::get('/pipelines/deals', [DealController::class, 'index']);
+Route::put('/pipelines/deals/{deal}', [DealController::class, 'update']);
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+/*
 Route::get('/show', function () {
     return Inertia::render('Show');
 });
@@ -59,3 +63,4 @@ Route::get('/drag', function () {
 Route::post('/logout', function () {
     dd('login the user out');
 });
+*/
