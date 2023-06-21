@@ -11,13 +11,25 @@
         </Link>
       </li>
       <li class="sidebar__item" :class="{ 'sidebar__item--active': $page.url === '/index' }">
-        <Link href="/index" class="sidebar__link">
+        <Link href="/pipelines/deals" class="sidebar__link">
           <i class="sidebar__icon las la-dollar-sign"></i>
           <span></span>
         </Link>
       </li>
       <li class="sidebar__item">
-        <Link href="components.html" class="sidebar__link">
+        <Link href="/pipelines" class="sidebar__link">
+          <i class="sidebar__icon las la-table"></i>
+          <span></span>
+        </Link>
+      </li>
+      <li class="sidebar__item">
+        <Link href="/pipelines/show" class="sidebar__link">
+          <i class="sidebar__icon las la-table"></i>
+          <span></span>
+        </Link>
+      </li>
+      <li class="sidebar__item">
+        <Link href="/pipelines/create" class="sidebar__link">
           <i class="sidebar__icon las la-table"></i>
           <span></span>
         </Link>

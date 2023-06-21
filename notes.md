@@ -291,3 +291,10 @@ App\Models\ActivityDeal::create(['deal_id' => 14, 'activity_id' => 3, 'schedule'
 App\Models\ActivityDeal::create(['deal_id' => 15, 'activity_id' => 3, 'schedule' => Carbon::today()->addDays(3)]);
 App\Models\ActivityDeal::create(['deal_id' => 15, 'activity_id' => 2, 'schedule' => Carbon::today()->addDays(3)]);
 
+
+// SEND TO GITHUB
+git add .
+git commit –m  'your message'
+git push -u origin main
+
+

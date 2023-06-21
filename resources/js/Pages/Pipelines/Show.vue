@@ -17,4 +17,8 @@
   import { ref, reactive } from "vue";
   import draggable from 'vuedraggable';
   import TheFilter from '../../components/TheFilter.vue';
+
+  // document.addEventListener('clck', (event) => {
+  //   console.log(e);
+  // });
 </script>

@@ -1,4 +1,98 @@
 <template>
+  <TheFilter>
+    <MenuDuoIcon></MenuDuoIcon>
+    <MenuDuoIcon></MenuDuoIcon>
+  </TheFilter>
+   <!-- Stages section START -->
+   <section class="stage__list">
+        <div>
+          <div class="stage__item">
+            <p class="stage__text">Qualified Lead</p>
+            <div class="stage__summary">
+              <div>
+                <span><i class="las la-balance-scale-left stage__icon"></i></span>
+                <span>$45,705</span>
+              </div>
+              <div class="">
+                <span>23 deals</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="stage__item">
+            <p class="stage__text">Contact Made</p>
+            <div class="stage__summary">
+              <div>
+                <span><i class="las la-balance-scale-left stage__icon"></i></span>
+                <span>$45,705</span>
+              </div>
+              <div class="">
+                <span>23 deals</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="stage__item">
+            <p class="stage__text">Meeting Arranged</p>
+            <div class="stage__summary">
+              <div>
+                <span><i class="las la-balance-scale-left stage__icon"></i></span>
+                <span>$45,705</span>
+              </div>
+              <div class="">
+                <span>23 deals</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="stage__item">
+            <p class="stage__text">Needs Defined</p>
+            <div class="stage__summary">
+              <div>
+                <span><i class="las la-balance-scale-left stage__icon"></i></span>
+                <span>$45,705</span>
+              </div>
+              <div class="">
+                <span>23 deals</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="stage__item">
+            <p class="stage__text">Proposal Sent</p>
+            <div class="stage__summary">
+              <div>
+                <span><i class="las la-balance-scale-left stage__icon"></i></span>
+                <span>$45,705</span>
+              </div>
+              <div class="">
+                <span>23 deals</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="stage__item">
+            <p class="stage__text">Contract Sent</p>
+            <div class="stage__summary">
+              <div>
+                <span><i class="las la-balance-scale-left stage__icon"></i></span>
+                <span>$45,705</span>
+              </div>
+              <div class="">
+                <span>23 deals</span>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+      </section>
+      <!-- Stages section END -->
+
   <section class="deal__table">
     <draggable class="deal__column deal__column--leads" v-model="qualifiedLeads" group="stage" 
       :move="handleMove" @add="handleAdd" item-key="id" tag="ul" id="9" stage="leads"
@@ -49,7 +143,7 @@
     </draggable>
   </section>
 </template>
-
+ 
 <style>
 </style>
 
@@ -64,8 +158,10 @@
 
 <script setup>
   import DealItem from "../../components/DealItem.vue";
+  import MenuDuoIcon from "../../components/MenuDuoIcon.vue";
   import { ref, reactive } from "vue";
   import draggable from 'vuedraggable';
+  import TheFilter from '../../components/TheFilter.vue';
 
   // Helpers
   const writeResource = async function (method, url, payload) {

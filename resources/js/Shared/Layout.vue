@@ -9,41 +9,7 @@
 
     <!-- Main content START -->
     <div class="app--1__3">
-      <!-- Filters section START -->
-      <section>
-        <div class="filters">
-          <div class="filters__left">
-            <div class="">
-              <button class=" btn btn--outline"><i class="sidebar__icon las la-chart-bar"></i></button>
-              <button class=" btn btn--outline"><i class="sidebar__icon las la-align-justify"></i></button>
-            </div>
-            <button class="btn btn--deal btn--primary">
-              <span>
-                <i class="nav__icon--s las la-plus"></i>
-              </span>
-              <span>Deal</span>
-            </button>
-          </div>
-          <div class="filters__right">
-            <div class="">
-              <i class="las la-dollar-sign nav__icon--s"></i>
-              <span>507,705</span>
-            </div>
-            <div class="">
-              <i class="las la-balance-scale-left nav__icon--s"></i>
-              <span>507,705</span>
-            </div>
-            <div class="">
-              <span>23 deals</span>
-            </div>
-            
-            <!-- Pipeline slot START-->
-            <!-- <slot name="pipeline"></slot> -->
-            <!-- Pipeline slot END-->
-          </div>
-        </div>
-      </section>
-      <!-- Filters section END -->
+      
 
       <!-- Links Slots START -->
       <!-- <slot name="section-links"> -->
