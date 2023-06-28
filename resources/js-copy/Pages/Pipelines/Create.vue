@@ -1,6 +1,5 @@
 <template>
-  PIPELINE'S LIST
-  {{ props.test }}
+  PIPELINE DETAIL
 </template>
 <style></style>
 <script>
@@ -18,9 +17,4 @@
   import { ref, reactive } from "vue";
   import draggable from 'vuedraggable';
   import TheFilter from '../../components/TheFilter.vue';
-
-  // Props
-const props = defineProps({
-});
-  
 </script>

@@ -26,6 +26,9 @@ button {
 .u-border {
   border: 1px solid rgba(154, 165, 177, 0.5) !important; }
 
+.u-border--error {
+  border: 1px solid rgba(225, 45, 57, 0.5) !important; }
+
 .u-border-bottom {
   box-shadow: 0 1px rgba(31, 41, 51, 0.15) !important; }
 
@@ -64,6 +67,9 @@ button {
 
 .horizontal-divider {
   height: 2rem; }
+
+.u-text--error {
+  color: #E12D39 !important; }
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -150,6 +156,9 @@ body {
     padding: 0rem .8rem; }
     .btn--outline:hover {
       background-color: #E0E8F9; }
+  .btn--text {
+    padding: 0;
+    background-color: transparent; }
 
 .input--search {
   position: relative; }

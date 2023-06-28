@@ -1,6 +1,6 @@
 <template>
   <TheFilter>
-    <!-- <MenuDuoIcon></MenuDuoIcon> -->
+    <MenuDuoIcon></MenuDuoIcon>
     <MenuDuoIcon></MenuDuoIcon>
   </TheFilter>
    <!-- Stages section START -->
@@ -142,7 +142,6 @@
       </template>
     </draggable>
   </section>
-  <Modal :isOpen="store.isAddModalOpen" @close-modal="store.isAddModalOpen = false"/>
 </template>
  
 <style>
@@ -158,10 +157,8 @@
 </script>
 
 <script setup>
-  import {store} from '../../store.js';
   import DealItem from "../../components/DealItem.vue";
   import MenuDuoIcon from "../../components/MenuDuoIcon.vue";
-  import Modal from "../../components/Modal.vue";
   import { ref, reactive } from "vue";
   import draggable from 'vuedraggable';
   import TheFilter from '../../components/TheFilter.vue';
@@ -202,20 +199,15 @@
     }
   };
 
-  // Props
   const props = defineProps({
     deals: Array,
     primaryContactArr: Array,
     stages: Array,
-    errors: Object
-    
   });
 
-  // State
   const state = reactive({
     deals: props.deals,
-    stages: props.stages,
-    
+    stages: props.stages
   });
 
   // Create group of deals by stage

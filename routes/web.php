@@ -22,10 +22,15 @@ Route::get('/pipelines/deals', [DealController::class, 'index']);
 
 Route::get('/', [PipelineController::class, 'index']);
 Route::get('/pipelines', [PipelineController::class, 'index']);
+Route::post('/pipelines', [PipelineController::class, 'store']);
 Route::get('/pipelines/create', [PipelineController::class, 'create']);
 Route::get('/pipelines/{pipeline}', [PipelineController::class, 'show']);
 
 Route::put('/pipelines/deals/{deal}', [DealController::class, 'update']);
+
+// Route::post('/pipelines', function () {
+//     // dd('login the user out');
+// });
 
 // Route::get('/', function () {
 //     return view('welcome');

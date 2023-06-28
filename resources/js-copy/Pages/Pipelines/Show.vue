@@ -1,6 +1,5 @@
 <template>
-  PIPELINE'S LIST
-  {{ props.test }}
+  PIPELINE DETAIL
 </template>
 <style></style>
 <script>
@@ -19,8 +18,7 @@
   import draggable from 'vuedraggable';
   import TheFilter from '../../components/TheFilter.vue';
 
-  // Props
-const props = defineProps({
-});
-  
+  // document.addEventListener('clck', (event) => {
+  //   console.log(e);
+  // });
 </script>

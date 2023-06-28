@@ -294,7 +294,7 @@ App\Models\ActivityDeal::create(['deal_id' => 15, 'activity_id' => 2, 'schedule'
 
 // SEND TO GITHUB
 git add .
-git commit –m  'your message'
-git push -u origin main
+git commit -m ''
+git push -u origin
 
 
