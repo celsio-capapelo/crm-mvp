@@ -1,4 +1,7 @@
 <template>
+  <div class="app--1">
+
+  
   <!-- Sidebar START -->
   <TheSideBar />
   <!-- Sidebar END -->
@@ -120,6 +123,7 @@
 
     </div>
     <!-- Main content END -->
+  </div>
 </template>
 
 <style>

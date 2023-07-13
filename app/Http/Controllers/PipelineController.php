@@ -15,7 +15,8 @@ class PipelineController extends Controller
 
     public function show() {
         // dd(request()->headers->get('X-Inertia'));
-        return Inertia::render('Pipelines/Show', ['page' => 'show']);
+        // return Inertia::render('Pipelines/Show', ['page' => 'show']);
+        return Inertia::render('Pipelines/Show');
     }
 
     public function create() {
@@ -32,6 +33,7 @@ class PipelineController extends Controller
         ]); 
 
         Pipeline::create($attributes);
+        // Pipeline::create();
 
         return redirect('/pipelines');
     }

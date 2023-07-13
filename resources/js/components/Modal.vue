@@ -11,7 +11,7 @@
         <h4 class="modal__title" >Add/edit pipeline</h4>
         <span class="modal__close"><i class="las la-times"></i></span>
       </div>
-      <form class="form" @submit.prevent="submit" >
+      <!-- <form class="form" @submit.prevent="submit" >
         <div class="form__group">
           <label class="form__label" for="name">Pipeline name</label>
           <input class="form__input" :class="{'u-border--error': $page.props.errors.name}" type="text" 
@@ -31,12 +31,34 @@
         </div>
       
 
-      <!-- Modal Footer -->
       <div class="modal__footer u-border-top">
         <span class="btn btn--link btn--s modal__close" role="button">Cancel</span>
         <button class="btn btn--primary btn--s" type="submit">Save</button>
       </div>
-
+    </form> -->
+    <form class="form" @submit.prevent="submit" >
+        <div class="form__group">
+          <label class="form__label" for="name">Pipeline name</label>
+          <input class="form__input" :class="{'u-border--error': $page.props.errors.name}" type="text" 
+            placeholder="Deal name" id="initialFocusOnAddPipelineModal" v-model="form.name"/>
+          <p v-if="$page.props.errors.name" v-text="$page.props.errors.name" 
+            :class="{'u-text--error': $page.props.errors.name}" ></p>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="purpose_id">Pipeline type</label>
+          <select class="form__select"  :class="{'u-border--error': $page.props.errors.purpose_id}" name="purpose_id" id="purpose_id" v-model="form.purpose_id" >
+            <option class="form__option" value="1">Sales</option>
+            <option class="form__option" value="2" selected>Prospect</option>
+            <option class="form__option" value="3">Leads generation</option>
+          </select>
+          <p v-if="$page.props.errors.purpose_id" v-text="$page.props.errors.purpose_id"
+          :class="{'u-text--error': $page.props.errors.purpose_id}"></p>
+        </div>
+        <!-- Modal Footer -->
+        <div class="modal__footer u-border-top">
+          <span class="btn btn--link btn--s modal__close" role="button">Cancel</span>
+          <button class="btn btn--primary btn--s" type="submit">Save</button>
+        </div>
     </form>
     </div>
     
@@ -51,15 +73,22 @@ import {defineEmits, reactive} from 'vue';
 import { Inertia } from '@inertiajs/inertia';
 import {store} from '../store.js';
 import {closeAddPipelineModal} from '../helpers.js';
+import { useForm } from '@inertiajs/inertia-vue3'
+
+const form = useForm({
+  name: null,
+  purpose_id: null,
+  user_id: 1,
+})
 
 // Event
 const emit = defineEmits(['closeModal']);
 
 // State
-const form = reactive({
-  name: '',
-  pipeline: '',
-});
+// const form = reactive({
+//   name: '',
+//   pipeline: '',
+// });
 
 // Props
 const props = defineProps({
@@ -67,12 +96,23 @@ const props = defineProps({
 });
 
 // Method
+// const submit = () => {
+//   Inertia.post('/pipelines', {'name': form.name, 'purpose_id': form.pipeline, 'user_id': 1});
+// }
+// const submit = () => {
+//   form.submit('post', '/pipelines', {
+//     data: form,
+//     onSuccess: page => {console.log(page)},
+//     onError: erros => {console.dir(erros.message)},
+//   });
+// }
 const submit = () => {
-  Inertia.post('/pipelines', {'name': form.name, 'purpose_id': form.pipeline, 'user_id': 1});
-  // closeAddPipelineModal();
-  console.log(props.errors);
+  form.submit('post', '/pipelines', {
+    data: form,
+    onSuccess: page => {console.log(page)},
+    onError: erros => {console.dir(erros.message)},
+  });
 }
-
 const handleClickToCloseModal = (e) => {
   if (e.target.classList.contains('modal--visible') 
     || e.target.classList.contains('la-times') 

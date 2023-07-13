@@ -19,6 +19,6 @@
 <!-- <body class="app--1" > -->
 <body >
     {{-- @inertia --}}
-    <div id="app" data-page="{{ json_encode($page)}}"  class="app--1"></div>
+    <div id="app" data-page="{{ json_encode($page)}}"></div>
 </body>
 </html> 

@@ -1,6 +1,5 @@
 <template>
   <TheFilter>
-    <!-- <MenuDuoIcon></MenuDuoIcon> -->
     <MenuDuoIcon></MenuDuoIcon>
   </TheFilter>
    <!-- Stages section START -->
