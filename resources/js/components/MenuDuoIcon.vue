@@ -69,15 +69,16 @@
 
 <script setup>
   // Import
-  import {ref} from 'vue';
+  import {ref, inject} from 'vue';
   import {store} from '../store.js';
   
   // Props
-  const props = defineProps({
-    pipelines: Array,
-  });
+  
 
-  console.log(props.pipelines);
+  // Inject
+  const pipelines = inject('pipelines');
+  console.log(pipelines);
+
   // State
   let isMenuClosed = ref(true);
 

@@ -36,10 +36,8 @@
 <style></style>
 <script setup>
 // Props
-const props = defineProps({
-    pipelines: Array,
-  });
-  
+
+
 /////////////////////////////////////////////////
 // Menu
 const menuCollection = document.querySelectorAll('.menu');

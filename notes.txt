@@ -1,0 +1,39 @@
+/////////////////////////////////////////////////
+DESIGN SYSTEM
+
+- Spacing system (px)
+4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96 / 128 / 192 / 256 / 384 / 512 / 640 / 768
+
+- Type scale (font size) (px)
+12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 48 / 60 / 72
+
+- Letter spacing (px)
+.5 /
+
+- Border-radius (px)
+5 / 
+
+- Line awesome icon font-size (px)
+16 / 24 / 32 / 48 / 64
+
+- Naming
+// CSS classes
+u- utility
+c- component
+
+- Colors
+Color palette #10 (Refactoring UI/Color Palettes, page 56)
+
+/////////////////////////////////////////////////
+PROJECT MANIFEST
+- Goal: Build a reusable HTML&CSS framework
+- Todo List
+  Elements (#): Input, textbox, button, select, radio, tag
+  Components (#): custom select, dropdown, tab , pagination, breadcrumbs, table, forms
+  Utilities (*): border, hd(horizontal divider), vd(vertical divider), border-radius, round, container
+  Layouts (#): app-layout, navbar footer, sidebar
+
+  (*) one utility 
+  (#) one base, 1-2 variations 
+
+

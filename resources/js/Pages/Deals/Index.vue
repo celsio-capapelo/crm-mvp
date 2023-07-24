@@ -1,6 +1,6 @@
 <template>
-  <TheFilter  :pipelines="pipelines">
-    <MenuDuoIcon  :pipelines="pipelines"></MenuDuoIcon>
+  <TheFilter>
+    <MenuDuoIcon></MenuDuoIcon>
   </TheFilter>
    <!-- Stages section START -->
    <section class="stage__list">
@@ -163,7 +163,7 @@
   import MenuDuoIcon from "../../components/MenuDuoIcon.vue";
   import Modal from "../../components/Modal.vue";
   import EditPipelineModal from "../../components/EditPipelineModal.vue";
-  import { ref, reactive } from "vue";
+  import { ref, reactive, provide } from "vue";
   import draggable from 'vuedraggable';
   import TheFilter from '../../components/TheFilter.vue';
 
@@ -219,6 +219,10 @@
     stages: props.stages,
     
   });
+
+  // Provide
+  provide('pipelines', props.pipelines);
+
 
   // Create group of deals by stage
   const qualifiedLeads = ref(state.deals.filter(d => d.stage_id == 9));
