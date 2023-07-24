@@ -6,6 +6,7 @@ use App\Models\Deal;
 use App\Models\Seller;
 use App\Http\Controllers\DealController;
 use App\Http\Controllers\PipelineController;
+use App\Http\Controllers\PipelineDealController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,15 +19,17 @@ use App\Http\Controllers\PipelineController;
 |
 */
 
-Route::get('/pipelines/deals', [DealController::class, 'index']);
+Route::get('/pipelines/{pipeline}/deals', [PipelineDealController::class, 'index']);
 
-Route::get('/', [PipelineController::class, 'index']);
-Route::get('/pipelines', [PipelineController::class, 'index']);
-Route::post('/pipelines', [PipelineController::class, 'store']);
-Route::get('/pipelines/create', [PipelineController::class, 'create']);
-Route::get('/pipelines/{pipeline}', [PipelineController::class, 'show']);
-
-Route::put('/pipelines/deals/{deal}', [DealController::class, 'update']);
+// Route::get('/', [PipelineController::class, 'index']);
+Route::redirect('/', '/pipelines/1/deals');
+// Route::get('/pipelines', [PipelineController::class, 'index']);
+// Route::post('/pipelines', [PipelineController::class, 'store']);
+// Route::get('/pipelines/create', [PipelineController::class, 'create']);
+// Route::get('/pipelines/{pipeline}', [PipelineController::class, 'show']);
+// Route::put('/pipelines/{pipeline}', [PipelineController::class, 'update']);
+// Route::get('/pipelines/{pipeline}/edit', [DealController::class, 'edit']);
+// Route::put('/pipelines/deals/{deal}', [DealController::class, 'update']);
 
 // Route::post('/pipelines', function () {
 //     // dd('login the user out');

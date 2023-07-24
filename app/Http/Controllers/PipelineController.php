@@ -37,4 +37,12 @@ class PipelineController extends Controller
 
         return redirect('/pipelines');
     }
+
+    public function update() {
+        return 'UPDATE METHOD';
+    }
+
+    public function edit() {
+        return 'EDIT METHOD';
+    }
 }

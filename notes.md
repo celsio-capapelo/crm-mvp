@@ -11,6 +11,8 @@ php artisan make:model Follower -mcf
 php artisan make:model Pipeline -mcf
 php artisan make:model Profile -mcf
 
+php artisan make:controller PipelineDealController
+
 // Migration
 $table->string('name');
 $table->foreignId('user_id')->constrained();

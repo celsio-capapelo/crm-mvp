@@ -9,19 +9,15 @@
       <div></div>
     </div>
     <ul class="menu__list u-border" :class="{ 'menu__list--hidden': isMenuClosed }" method="" action="#">
-        <li 
-          v-for="pipeline in pipelines" 
-          :key="pipeline.id" 
-          class="menu__item menu__item--space-between"
-        >
-          <div>
-          <button class="btn btn--text">{{ pipeline.name }}</button>
+      <li class="menu__item menu__item--space-between">
+        <div>
+          <button class="btn btn--text">Pipeline 1</button>
         </div>
         <div>
           <i class="las la-edit"></i>
         </div>
       </li>
-      <!-- <li class="menu__item menu__item--space-between">
+      <li class="menu__item menu__item--space-between">
         <div>
           <button class="btn btn--text">Pipeline 2</button>
         </div>
@@ -36,7 +32,7 @@
         <div>
           <i class="las la-edit"></i>
         </div>
-      </li> -->
+      </li>
       <li class="menu__item menu__item--space-between">
         <div>
           <i class="las la-plus"></i>
@@ -48,7 +44,7 @@
       <li class="menu__item menu__item--space-between">
         <div>
           <i class="las la-edit"></i>
-          <button class="btn btn--text" @click="openEditModal">Edit pipeline</button>
+          <button class="btn btn--text">Edit pipeline</button>
         </div>
         <div>
         </div>
@@ -71,13 +67,7 @@
   // Import
   import {ref} from 'vue';
   import {store} from '../store.js';
-  
-  // Props
-  const props = defineProps({
-    pipelines: Array,
-  });
 
-  console.log(props.pipelines);
   // State
   let isMenuClosed = ref(true);
 
@@ -94,14 +84,6 @@
     store.isAddModalOpen = true
     setTimeout(() => {
       document.querySelector('#initialFocusOnAddPipelineModal').focus();
-    }, 10);
-    closeMenu();
-  };
-
-  const openEditModal = () => {
-    store.isEditModalOpen = true
-    setTimeout(() => {
-      document.querySelector('#initialFocusOnEditPipelineModal').focus();
     }, 10);
     closeMenu();
   };
