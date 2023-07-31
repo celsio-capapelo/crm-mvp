@@ -9,7 +9,34 @@
       <div></div>
     </div>
     <ul class="menu__list u-border" :class="{ 'menu__list--hidden': isMenuClosed }" method="" action="#">
-      <DropdownMenuItem v-for="pipeline in pipelines" :key="pipeline.id" :item="pipeline"/>
+        <li 
+          v-for="pipeline in pipelines" 
+          :key="pipeline.id" 
+          class="menu__item menu__item--space-between"
+        >
+          <div>
+          <button class="btn btn--text">{{ pipeline.name }}</button>
+        </div>
+        <div>
+          <i class="las la-edit"></i>
+        </div>
+      </li>
+      <!-- <li class="menu__item menu__item--space-between">
+        <div>
+          <button class="btn btn--text">Pipeline 2</button>
+        </div>
+        <div>
+          <i class="las la-edit"></i>
+        </div>
+      </li>
+      <li class="menu__item menu__item--space-between u-border-bottom">
+        <div>
+          <button class="btn btn--text">Pipeline 3</button>
+        </div>
+        <div>
+          <i class="las la-edit"></i>
+        </div>
+      </li> -->
       <li class="menu__item menu__item--space-between">
         <div>
           <i class="las la-plus"></i>
@@ -44,14 +71,12 @@
   // Import
   import {ref, inject} from 'vue';
   import {store} from '../store.js';
-  import DropdownMenuItem from './DropdownMenuItem.vue';
-
+  
   // Inject
   const pipelines = inject('pipelines');
-  
+
   // State
   let isMenuClosed = ref(true);
-  const isEditingPipeline = ref(false);
 
   // Method
   const closeMenu = () => isMenuClosed.value = true;
@@ -77,9 +102,4 @@
     }, 10);
     closeMenu();
   };
-
-  const handleEditClick = () => {
-
-    isEditingPipeline.value = true;
-  }
 </script>

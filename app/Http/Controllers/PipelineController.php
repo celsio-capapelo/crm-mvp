@@ -29,20 +29,33 @@ class PipelineController extends Controller
             'purpose_id' => 'required',
             'user_id' => 'required',
         ], [
-            'purpose_id.required' => 'The purpose_id field is required',
+            'purpose_id.required' => 'The pipeline type is required',
         ]); 
 
         Pipeline::create($attributes);
-        // Pipeline::create();
 
         return redirect('/pipelines');
     }
 
-    public function update() {
-        return 'UPDATE METHOD';
-    }
+    // public function update(Request $request, Pipeline $pipeline) {
+    //     $pipeline->name = $request->name;
+    //     $pipeline->purpose_id = $request->purpose_id;
+    //     $pipeline->save();
 
-    public function edit() {
-        return 'EDIT METHOD';
+    //     return redirect()->back();
+    // }
+
+    public function update(Request $request, Pipeline $pipeline) {
+        $attributes = $request->validate([
+                'name' => 'required',
+                'purpose_id' => 'required',
+                'user_id' => 'required',
+            ], [
+                'purpose_id.required' => 'The pipeline type is required',
+            ]); 
+
+        $pipeline->update($attributes);
+
+        return redirect()->back();
     }
 }

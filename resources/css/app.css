@@ -587,9 +587,12 @@ body {
     display: flex;
     padding: .4rem .8rem; }
     .menu__item--space-between {
-      justify-content: space-between; }
+      justify-content: space-between; 
+      /* TO DO IN SCSS */
+      gap: 16px;
+    }
     .menu__item:hover {
-      cursor: pointer;
+      /* cursor: pointer; */
       background-color: #CBD2D9; }
     .menu__item i:not(:last-child) {
       margin-right: .4rem; }

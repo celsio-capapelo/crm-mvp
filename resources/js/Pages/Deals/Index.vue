@@ -209,7 +209,7 @@
     primaryContactArr: Array,
     stages: Array,
     errors: Object,
-    // pipeline: Object,
+    purposes: Array,
     pipelines: Array,
   });
 
@@ -222,6 +222,7 @@
 
   // Provide
   provide('pipelines', props.pipelines);
+  provide('purposes', props.purposes);
 
 
   // Create group of deals by stage

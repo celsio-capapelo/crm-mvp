@@ -1,6 +1,7 @@
 <template>
   PIPELINE'S LIST
   {{ props.test }}
+  
 </template>
 <style></style>
 <script>
