@@ -42,17 +42,20 @@
 
 <script setup>
   // Import
-  import {ref, inject} from 'vue';
+  import {ref, inject, reactive} from 'vue';
   import {store} from '../store.js';
   import DropdownMenuItem from './DropdownMenuItem.vue';
 
   // Inject
-  const pipelines = inject('pipelines');
-  
+  const pipelinesInjected = reactive(inject('pipelines'));
+
   // State
   let isMenuClosed = ref(true);
   const isEditingPipeline = ref(false);
-
+  const pipelines = reactive(pipelinesInjected);
+  console.log({pipelines});
+  console.log({pipelinesInjected});
+  
   // Method
   const closeMenu = () => isMenuClosed.value = true;
   const openMenu = () => isMenuClosed.value = false;

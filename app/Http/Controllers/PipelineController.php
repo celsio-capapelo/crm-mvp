@@ -58,4 +58,9 @@ class PipelineController extends Controller
 
         return redirect()->back();
     }
+
+    public function destroy(Pipeline $pipeline) {
+        $pipeline->delete();
+        // return redirect()->back();
+    }
 }

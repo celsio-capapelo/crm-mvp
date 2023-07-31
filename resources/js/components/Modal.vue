@@ -40,7 +40,7 @@
         <div class="form__group">
           <label class="form__label" for="name">Pipeline name</label>
           <input class="form__input" :class="{'u-border--error': $page.props.errors.name}" type="text" 
-            placeholder="Deal name" id="initialFocusOnAddPipelineModal" v-model="form.name"/>
+            placeholder="Pipeline name" id="initialFocusOnAddPipelineModal" v-model="form.name"/>
           <p v-if="$page.props.errors.name" v-text="$page.props.errors.name" 
             :class="{'u-text--error': $page.props.errors.name}" ></p>
         </div>

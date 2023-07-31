@@ -26,7 +26,7 @@
     </div>
     <div>
       <i @click="isOpen = true" class="las la-pen"></i>
-      <i class="las la-trash"></i>
+      <i class="las la-trash" @click="deletePipeline"></i>
     </div>
   </li>
 </template>
@@ -59,6 +59,10 @@
   
   const handleEdit = () => {
     isOpen.value = true;
+  };
+
+  const deletePipeline = () => {
+    form.delete('/pipelines/' + props.item.id, {'id': props.item.id});
   };
   
   // Lifecycle

@@ -296,7 +296,7 @@ App\Models\ActivityDeal::create(['deal_id' => 15, 'activity_id' => 2, 'schedule'
 
 // SEND TO GITHUB
 git add .
-git commit -m 'Implement create pipeline feature'
+git commit -m 'Implemented updated pipeline feature'
 git push -u origin
 
 // VERIFY GITHUB

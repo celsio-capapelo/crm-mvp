@@ -28,6 +28,7 @@ Route::post('/pipelines', [PipelineController::class, 'store']);
 Route::get('/pipelines/create', [PipelineController::class, 'create']);
 Route::get('/pipelines/{pipeline}', [PipelineController::class, 'show']);
 Route::put('/pipelines/{pipeline}', [PipelineController::class, 'update']);
+Route::delete('/pipelines/{pipeline}', [PipelineController::class, 'destroy']);
 Route::get('/pipelines/{pipeline}/edit', [DealController::class, 'edit']);
 Route::put('/pipelines/deals/{deal}', [DealController::class, 'update']);
 
