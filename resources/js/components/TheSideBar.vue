@@ -1,7 +1,7 @@
 <template>
   <menu class="app--1__1 sidebar">
     <div class="company">
-      <p class="company__name">V8</p>
+      <a href="/" class="company__name">V8</a>
     </div>
     <ul class="sidebar__list">
       <li class="sidebar__item">

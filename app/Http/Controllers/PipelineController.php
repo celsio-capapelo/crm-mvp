@@ -34,7 +34,7 @@ class PipelineController extends Controller
 
         Pipeline::create($attributes);
 
-        return redirect('/pipelines');
+        // return redirect('/pipelines');
     }
 
     // public function update(Request $request, Pipeline $pipeline) {

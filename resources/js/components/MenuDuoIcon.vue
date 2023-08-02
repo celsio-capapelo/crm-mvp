@@ -9,7 +9,7 @@
       <div></div>
     </div>
     <ul class="menu__list u-border" :class="{ 'menu__list--hidden': isMenuClosed }" method="" action="#">
-      <DropdownMenuItem v-for="pipeline in pipelines" :key="pipeline.id" :item="pipeline"/>
+      <DropdownMenuItem v-for="pipeline in store.pipelines" :key="pipeline.id" :item="pipeline"/>
       <li class="menu__item menu__item--space-between">
         <div>
           <i class="las la-plus"></i>
@@ -47,14 +47,13 @@
   import DropdownMenuItem from './DropdownMenuItem.vue';
 
   // Inject
-  const pipelinesInjected = reactive(inject('pipelines'));
-
+  // const pipelinesInjected = inject('pipelines');
+  
   // State
   let isMenuClosed = ref(true);
   const isEditingPipeline = ref(false);
-  const pipelines = reactive(pipelinesInjected);
-  console.log({pipelines});
-  console.log({pipelinesInjected});
+  // const pipelines = ref([]);
+  // pipelines.value = pipelinesInjected;
   
   // Method
   const closeMenu = () => isMenuClosed.value = true;
@@ -82,7 +81,6 @@
   };
 
   const handleEditClick = () => {
-
     isEditingPipeline.value = true;
   }
 </script>

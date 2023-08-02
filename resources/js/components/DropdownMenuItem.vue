@@ -25,7 +25,7 @@
       </form>
     </div>
     <div>
-      <i @click="isOpen = true" class="las la-pen"></i>
+      <i @click="isOpen = !isOpen" class="las la-pen"></i>
       <i class="las la-trash" @click="deletePipeline"></i>
     </div>
   </li>
@@ -36,6 +36,7 @@
 <script setup>
   import { defineProps, ref, onMounted, inject } from "vue";
   import { useForm } from '@inertiajs/inertia-vue3'
+  import {store} from '../store.js';
 
   // State
   const isOpen = ref(false);
@@ -53,16 +54,14 @@
   });
   
   // Methods
-  const submit = () => {
-    console.log();
-  };
   
   const handleEdit = () => {
-    isOpen.value = true;
+    isOpen.value = false;
   };
 
   const deletePipeline = () => {
     form.delete('/pipelines/' + props.item.id, {'id': props.item.id});
+    store.deletePipeline(props.item.id);
   };
   
   // Lifecycle
@@ -72,5 +71,4 @@
   form.id = props.item.id;
   form.name = props.item.name;
   form.purpose_id = props.item.purpose_id;
-  form.purpose_name = props.item.purpose.name;
 </script>

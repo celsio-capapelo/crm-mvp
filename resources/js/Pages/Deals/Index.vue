@@ -221,7 +221,7 @@
   });
 
   // Provide
-  provide('pipelines', props.pipelines);
+  // provide('pipelines', props.pipelines);
   provide('purposes', props.purposes);
 
 
@@ -254,4 +254,9 @@
     // Update added deal in DB
     writeResource('put', '/pipelines/deals/' + deal.id, { stageId: deal.stage_id });
   }
+
+  // Lifecycles
+  // 1. Created
+  store.pipelines = props.pipelines;
+  
 </script>

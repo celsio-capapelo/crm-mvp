@@ -109,7 +109,12 @@ const props = defineProps({
 const submit = () => {
   form.submit('post', '/pipelines', {
     data: form,
-    onSuccess: page => {console.log(page)},
+    onSuccess: async page => {
+      const response = await fetch('/api/pipelines');
+      const data = await response.json();
+      const lastPipelineInDB = data[data.length - 1];
+      store.addPipelineToStore(lastPipelineInDB);
+    },
     onError: erros => {console.dir(erros.message)},
   });
 }
